@@ -1,0 +1,16 @@
+<h1>Dodeli pravo </h1>
+
+<form >
+
+    <select name="izabraniKorisnik" [(ngModel)]="izabraniKorisnik">
+        <option value="{{ korisnik.id }}" *ngFor="let korisnik of korisnici">{{ korisnik.korisnickoIme }}</option>
+    </select>
+    <select name="izabranoPravo" [(ngModel)]="izabranoPravo">
+        <option value="{{ pravo.id }}" *ngFor="let pravo of pravaPristupa">{{ pravo.naziv }}</option>
+    </select>
+    
+
+    <input type="date" [(ngModel)]="dodeljenoPravo.datumDodele" placeholder="datum dodele" name="datumDodele">
+    <input type="date" [(ngModel)]="dodeljenoPravo.datumOpoziva" name="datumOpoziva" placeholder="datum opoziva">
+    <button (click)="dodaj()">Dodaj</button>
+</form>

@@ -1,0 +1,19 @@
+<button (click)="prikaziFormu()">Dodaj pravo pristupa</button>
+
+<table style="width:100%">
+    <tr>
+      <th>Id</th>
+      <th>Naziv</th>
+      <th>Detalji</th>
+      <th>Brisanje</th>
+    </tr>
+    <tr *ngFor="let pravo of pravaPristupa">
+        <td>{{ pravo.id }}</td>
+        <td>{{ pravo.naziv }}</td>
+        <td><a [routerLink]="['/pravapristupa', pravo.id]">Detalji</a></td>
+        <td><button (click)="obrisiPravoPristupa(pravo.id)">Obrisi</button></td>
+    </tr>
+  </table>
+
+
+  <app-pravo-pristupa-add *ngIf="forma" (onAdd)="dodajPravoPristupa($event)"></app-pravo-pristupa-add>

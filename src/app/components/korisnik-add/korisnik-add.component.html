@@ -1,0 +1,9 @@
+
+<h1>Novi korisnik</h1>
+
+<form>
+    <input type="text" placeholder="korisnicko ime" [(ngModel)]="korisnik.korisnickoIme" name="korisnickoIme">
+    <input type="text" placeholder="email" [(ngModel)]="korisnik.email" name="email">
+    <input type="text" placeholder="lozinka" [(ngModel)]="korisnik.lozinka" name="lozinka">
+    <button type="submit" (click)="proslediKorisnika()">Dodaj korisnika</button>
+</form>

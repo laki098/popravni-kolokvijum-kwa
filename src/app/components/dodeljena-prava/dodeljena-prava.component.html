@@ -1,0 +1,25 @@
+<button (click)="prikaziFormu()">Dodeli pravo</button>
+
+<table style="width:100%">
+    <tr>
+      <th>Id</th>
+      <th>Korisnik Id: </th>
+      <th>Pravo pristupa Id: </th>
+      <th>Datum dodele: </th>
+      <th>Datum opoziva: </th>
+      <th>Detalji</th>
+      <th>Brisanje</th>
+    </tr>
+    <tr *ngFor="let dodeljeno of dodeljenaPrava">
+        <td>{{ dodeljeno.id }}</td>
+        <td>{{ dodeljeno.korisnikId }}</td>
+        <td>{{ dodeljeno.pravoPristupaId }}</td>
+        <td>{{ dodeljeno.datumDodele }}</td>
+        <td>{{ dodeljeno.datumOpoziva }}</td>
+        <td><a [routerLink]="['/dodeljenaprava', dodeljeno.id]">Detalji</a></td>
+        <td><button (click)="obrisiDodeljeno(dodeljeno.id)">Obrisi</button></td>
+    </tr>
+  </table>
+
+
+  <app-dodeljena-prava-add *ngIf="forma" (onAdd)="dodajDodeljeno($event)"></app-dodeljena-prava-add>

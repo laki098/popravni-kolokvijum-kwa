@@ -1,0 +1,23 @@
+<button (click)="prikaziFormu()">Dodaj korisnika</button>
+
+<table style="width:100%">
+    <tr>
+      <th>Id</th>
+      <th>Korisnicko ime</th>
+      <th>Email</th>
+      <th>Lozinka</th>
+      <th>Detalji</th>
+      <th>Brisanje</th>
+    </tr>
+    <tr *ngFor="let korisnik of korisnici">
+        <td>{{ korisnik.id }}</td>
+        <td>{{ korisnik.korisnickoIme }}</td>
+        <td>{{ korisnik.email }}</td>
+        <td>{{ korisnik.lozinka }}</td>
+        <td><a [routerLink]="['/korisnici', korisnik.id]">Detalji</a></td>
+        <td><button (click)="obrisiKorisnika(korisnik.id)">Obrisi</button></td>
+    </tr>
+  </table>
+
+
+  <app-korisnik-add *ngIf="forma" (onAdd)="dodajKorisnika($event)"></app-korisnik-add>
